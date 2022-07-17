@@ -518,14 +518,16 @@ y = \beta_0 + \beta_1 x_1 + \cdots + \beta_d x_d + \varepsilon
 <section id="id3">
 <h3>制約付き最小化問題<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <p>線形回帰と違う点は，パラメータの推定（誤差関数の最小化）に関して制約条件がある点です。</p>
-<p>線形回帰は，目的変数の実測値<span class="math notranslate nohighlight">\(y_i\)</span>と予測値<span class="math notranslate nohighlight">\(\hat{y}_i=\sum^d_{j=1} x_{ij} \beta_j\)</span>の誤差二乗和<span class="math notranslate nohighlight">\(SSE=\sum^n_{i=1} (y_i - \hat{y}_i)^2\)</span>を最小にするパラメータを求めるものでした。
-$<span class="math notranslate nohighlight">\(
+<p>線形回帰は，目的変数の実測値<span class="math notranslate nohighlight">\(y_i\)</span>と予測値<span class="math notranslate nohighlight">\(\hat{y}_i=\sum^d_{j=1} x_{ij} \beta_j\)</span>の誤差二乗和<span class="math notranslate nohighlight">\(SSE=\sum^n_{i=1} (y_i - \hat{y}_i)^2\)</span>を最小にするパラメータを求めるものでした。</p>
+<div class="math notranslate nohighlight">
+\[
 \newcommand{\argmin}{\mathop{\rm arg~min}\limits}
 \hat{\boldsymbol{\beta}}^{LS} = \argmin_{\boldsymbol{\beta}}
 \sum^n_{i=1} (y_i - \hat{y}_i)^2
-\)</span><span class="math notranslate nohighlight">\(
-リッジ回帰はこれに「パラメータ\)</span>\beta_j<span class="math notranslate nohighlight">\(の二乗和がある値\)</span>R<span class="math notranslate nohighlight">\(以下である」という制約条件が付いた下でパラメータを推定します。
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>リッジ回帰はこれに「パラメータ<span class="math notranslate nohighlight">\(\beta_j\)</span>の二乗和がある値<span class="math notranslate nohighlight">\(R\)</span>以下である」という制約条件が付いた下でパラメータを推定します。</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \newcommand{\argmin}{\mathop{\rm arg~min}\limits}
 \begin{align}
 \hat{\boldsymbol{\beta}}^{ridge} = \text{ } 
@@ -533,118 +535,115 @@ $<span class="math notranslate nohighlight">\(
 \\
 &amp; \text{subject to } \sum^d_{i=1} \beta_j^2 \leq R
 \end{align}
-\)</span>$
-この問題を解くために，<strong>ラグランジュの未定乗数法</strong>を利用します。</p>
+\end{split}\]</div>
+<p>この問題を解くために，<strong>ラグランジュの未定乗数法</strong>を利用します。</p>
 </section>
 <section id="id4">
 <h3>ラグランジュの未定乗数法<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
 <p>ざっくりいうと，以下の手続きで問題の制約を緩和して解く方法です。</p>
-<p>(1) 微分可能な凸関数<span class="math notranslate nohighlight">\(f(\boldsymbol{x})\)</span>に対する制約付き最小化問題があるとします。
-$<span class="math notranslate nohighlight">\(
+<p>(1) 微分可能な凸関数<span class="math notranslate nohighlight">\(f(\boldsymbol{x})\)</span>に対する制約付き最小化問題があるとします。</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{align}\min_\boldsymbol{x} \hspace{1em} &amp; f(\boldsymbol{x})\\
 \text{subject to} \hspace{1em} &amp; g(\boldsymbol{x}) \leq r\end{align}
-\)</span><span class="math notranslate nohighlight">\(
-(2) **ラグランジュ未定乗数**という未知の値\)</span>\lambda\geq0<span class="math notranslate nohighlight">\(を用いて，**ラグランジュ関数**（**ラグランジアン**）
-\)</span><span class="math notranslate nohighlight">\(
+\end{split}\]</div>
+<p>(2) <strong>ラグランジュ未定乗数</strong>という未知の値<span class="math notranslate nohighlight">\(\lambda\geq0\)</span>を用いて，<strong>ラグランジュ関数</strong>（<strong>ラグランジアン</strong>）</p>
+<div class="math notranslate nohighlight">
+\[
 L(\boldsymbol{x}, \lambda) 
 = f(\boldsymbol{x}) + \lambda (g(\boldsymbol{x}) - r)
-\)</span>$
-を作ります。</p>
-<p>(3) <strong>ラグランジュ双対問題</strong>
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>を作ります。</p>
+<p>(3) <strong>ラグランジュ双対問題</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{align}\max_\lambda \hspace{1em} &amp;  L(\boldsymbol{x}, \lambda)\\
 \text{subject to} \hspace{1em} &amp; \lambda \geq 0\end{align}
-\)</span><span class="math notranslate nohighlight">\(
-を解いていきます。\)</span>L(\boldsymbol{x}, \lambda)<span class="math notranslate nohighlight">\(を\)</span>\boldsymbol{x}<span class="math notranslate nohighlight">\(で微分してゼロとおき，
-\)</span>$
-\boldsymbol{0} = \frac{\partial L}{\partial \boldsymbol{x}} =
-\frac{\partial f}{\partial \boldsymbol{x}}</p>
-<ul class="simple">
-<li><p>\lambda \frac{\partial g}{\partial \boldsymbol{x}}
-$<span class="math notranslate nohighlight">\(
-これを解いて最適解\)</span>\lambda^<em>, \boldsymbol{x}^</em><span class="math notranslate nohighlight">\(を得ます。この解\)</span>\boldsymbol{x}^*$は元の最小化問題（主問題）の解と一致することが知られています。</p></li>
-</ul>
+\end{split}\]</div>
+<p>を解いていきます。<span class="math notranslate nohighlight">\(L(\boldsymbol{x}, \lambda)\)</span>を<span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span>で微分してゼロとおき，</p>
+<div class="math notranslate nohighlight">
+\[
+\boldsymbol{0} = \frac{\partial L}{\partial \boldsymbol{x}} = 
+\frac{\partial f}{\partial \boldsymbol{x}}
++ \lambda \frac{\partial g}{\partial \boldsymbol{x}}
+\]</div>
+<p>これを解いて最適解<span class="math notranslate nohighlight">\(\lambda^*, \boldsymbol{x}^*\)</span>を得ます。この解<span class="math notranslate nohighlight">\(\boldsymbol{x}^*\)</span>は元の最小化問題（主問題）の解と一致することが知られています。</p>
 </section>
 <section id="id5">
 <h3>誤差関数の整理<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
-<p>ラグランジュの未定乗数法を利用して，誤差関数を以下のように書くことができます。
-$<span class="math notranslate nohighlight">\(
+<p>ラグランジュの未定乗数法を利用して，誤差関数を以下のように書くことができます。</p>
+<div class="math notranslate nohighlight">
+\[
 J({\boldsymbol{\beta}})
 = \sum_{i=1}^n(y_i - \hat{y}_i)^2 + \lambda \sum_{j=1}^d \beta_j^2
-\)</span><span class="math notranslate nohighlight">\(
-この右辺第二項は**正則化項**，\)</span>\lambda<span class="math notranslate nohighlight">\(は**正則化パラメータ**と呼ばれます。\)</span>\lambda=0$のときは最小二乗法と同じ誤差関数になり，得られる推定量も最小二乗推定量と等しくなります。</p>
+\]</div>
+<p>この右辺第二項は<strong>正則化項</strong>，<span class="math notranslate nohighlight">\(\lambda\)</span>は<strong>正則化パラメータ</strong>と呼ばれます。<span class="math notranslate nohighlight">\(\lambda=0\)</span>のときは最小二乗法と同じ誤差関数になり，得られる推定量も最小二乗推定量と等しくなります。</p>
 <p>一般的なラグランジュ双対問題とは異なり，リッジ回帰では最適な<span class="math notranslate nohighlight">\(\lambda\)</span>を推定することはせず，あらかじめ<span class="math notranslate nohighlight">\(\lambda\)</span>を指定して<span class="math notranslate nohighlight">\(x\)</span>を推定します。（誤差を最小にする<span class="math notranslate nohighlight">\(\lambda\)</span>はゼロであり，正則化の意味がなくなるためだと思われます。）</p>
 <p>また，最初の制約問題で登場した<span class="math notranslate nohighlight">\(R\)</span>は誤差関数に含めません（誤差関数を<span class="math notranslate nohighlight">\(\beta\)</span>について微分したときに定数項の<span class="math notranslate nohighlight">\(R\)</span>は消えて，特に影響をもたらさないためだと思います。）</p>
-<p>ちなみに行列表記するとこんな感じに表されます。文献によって採用している表記法が違っていて，慣れないと混乱するかも知れません。
-$$
+<p>ちなみに行列表記するとこんな感じに表されます。文献によって採用している表記法が違っていて，慣れないと混乱するかも知れません。</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{align}
 J({\boldsymbol{\beta}})
-&amp;= \sum_{i=1}^n(y_i - \hat{y}<em>i)^2 + \lambda \sum</em>{j=1}^d \beta_j^2
-\
-&amp;= | \boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta}|^2_2</p>
-<ul class="simple">
-<li><p>\lambda| \boldsymbol{\beta}|^2_2
-\
-&amp;= (\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})^\top
-(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})</p></li>
-<li><p>\lambda \boldsymbol{\beta}^\top \boldsymbol{\beta}
+&amp;= \sum_{i=1}^n(y_i - \hat{y}_i)^2 + \lambda \sum_{j=1}^d \beta_j^2
+\\
+&amp;= \| \boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta}\|^2_2
++ \lambda\| \boldsymbol{\beta}\|^2_2
+\\
+&amp;= (\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})^\top 
+(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})
++ \lambda \boldsymbol{\beta}^\top \boldsymbol{\beta}
 \end{align}
-$<span class="math notranslate nohighlight">\(
-リッジ回帰の推定量\)</span>\hat{\boldsymbol{\beta}}^{ridge}<span class="math notranslate nohighlight">\(は解析的に解くことができ，
-\)</span>$
+\end{split}\]</div>
+<p>リッジ回帰の推定量<span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}^{ridge}\)</span>は解析的に解くことができ，</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{align}
 J(\boldsymbol{\beta})
-&amp;= (\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})^\top
-(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})</p></li>
-<li><p>\lambda \boldsymbol{\beta}^\top \boldsymbol{\beta}
-\
-&amp;= \boldsymbol{y}^\top \boldsymbol{y}</p></li>
-</ul>
-<ul class="simple">
-<li><p>\boldsymbol{y}^\top \boldsymbol{X}\boldsymbol{\beta}</p></li>
-<li><p>(\boldsymbol{X}\boldsymbol{\beta})^\top \boldsymbol{y}</p></li>
-</ul>
-<ul class="simple">
-<li><p>(\boldsymbol{X}\boldsymbol{\beta})^\top
-(\boldsymbol{X}\boldsymbol{\beta})</p></li>
-<li><p>\lambda \boldsymbol{\beta}^\top \boldsymbol{\beta}
-\
-&amp;= \boldsymbol{y}^\top \boldsymbol{y}</p></li>
-</ul>
-<ul class="simple">
-<li><p>2 \boldsymbol{\beta}^\top \boldsymbol{X}^\top \boldsymbol{y}</p></li>
-</ul>
-<ul class="simple">
-<li><p>\boldsymbol{\beta}^\top \boldsymbol{X}^\top
-\boldsymbol{X} \boldsymbol{\beta}</p></li>
-<li><p>\lambda \boldsymbol{\beta}^\top \boldsymbol{\beta}
+&amp;= (\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})^\top 
+(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})
++ \lambda \boldsymbol{\beta}^\top \boldsymbol{\beta}
+\\
+&amp;= \boldsymbol{y}^\top \boldsymbol{y}
+- \boldsymbol{y}^\top \boldsymbol{X}\boldsymbol{\beta}
+- (\boldsymbol{X}\boldsymbol{\beta})^\top \boldsymbol{y}
++ (\boldsymbol{X}\boldsymbol{\beta})^\top
+(\boldsymbol{X}\boldsymbol{\beta})
++ \lambda \boldsymbol{\beta}^\top \boldsymbol{\beta}
+\\
+&amp;= \boldsymbol{y}^\top \boldsymbol{y}
+- 2 \boldsymbol{\beta}^\top \boldsymbol{X}^\top \boldsymbol{y}
++ \boldsymbol{\beta}^\top \boldsymbol{X}^\top 
+\boldsymbol{X} \boldsymbol{\beta}
++ \lambda \boldsymbol{\beta}^\top \boldsymbol{\beta}
 \end{align}
-$<span class="math notranslate nohighlight">\(
-なので，誤差関数の傾きがゼロ（誤差が最小値）の点を求めると
-\)</span>$
+\end{split}\]</div>
+<p>なので，誤差関数の傾きがゼロ（誤差が最小値）の点を求めると</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \frac{\partial J(\boldsymbol{\beta})}{\partial \boldsymbol{\beta}}
-= -2\boldsymbol{X}^\top\boldsymbol{y}</p></li>
-<li><p>2(\boldsymbol{X}^\top\boldsymbol{X})\boldsymbol{\beta}</p></li>
-<li><p>2\lambda\boldsymbol{\beta}
+= -2\boldsymbol{X}^\top\boldsymbol{y}
++ 2(\boldsymbol{X}^\top\boldsymbol{X})\boldsymbol{\beta}
++ 2\lambda\boldsymbol{\beta}
 =\boldsymbol{0}
-\
+\\
 \Longrightarrow
-(\boldsymbol{X}^\top\boldsymbol{X})\boldsymbol{\beta}</p></li>
-<li><p>\lambda\boldsymbol{\beta}
+(\boldsymbol{X}^\top\boldsymbol{X})\boldsymbol{\beta}
++ \lambda\boldsymbol{\beta}
 =\boldsymbol{X}^\top\boldsymbol{y}
-\
+\\
 \Longrightarrow
 (\boldsymbol{X}^\top\boldsymbol{X} + \lambda \boldsymbol{I})\boldsymbol{\beta}
 =\boldsymbol{X}^\top\boldsymbol{y}
-$<span class="math notranslate nohighlight">\(
-となり，
-\)</span><span class="math notranslate nohighlight">\(
+\end{split}\]</div>
+<p>となり，</p>
+<div class="math notranslate nohighlight">
+\[
 \hat{\boldsymbol{\beta}}^{ridge}
 = (\boldsymbol{X}^\top \boldsymbol{X} + \lambda \boldsymbol{I})^{-1}
 \boldsymbol{X}^\top \boldsymbol{y}
-\)</span>$
-となります。</p></li>
-</ul>
+\]</div>
+<p>となります。</p>
 </section>
 </section>
 <section id="id6">
