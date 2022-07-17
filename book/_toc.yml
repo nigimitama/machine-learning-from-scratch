@@ -4,4 +4,7 @@
 format: jb-book
 root: index
 chapters:
-- file: 01_linear_regression
+- file: linear_models/regression/linear_regression
+- file: linear_models/regression/ridge_regression
+- file: linear_models/classification/linear_discrete_model
+- file: linear_models/classification/logistic_regression
