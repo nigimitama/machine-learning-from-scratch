@@ -3,9 +3,13 @@
 
 format: jb-book
 root: index
-chapters:
-- file: linear_models/regression/linear_regression
-- file: linear_models/regression/ridge_regression
-- file: linear_models/regression/lasso
-- file: linear_models/classification/linear_discriminant_analysis
-- file: linear_models/classification/logistic_regression
+parts:
+  - caption: Linear Regression
+    chapters:
+    - file: linear_models/regression/linear_regression
+    - file: linear_models/regression/ridge_regression
+    - file: linear_models/regression/lasso
+  - caption: Linear Classification
+    chapters:
+    - file: linear_models/classification/linear_discriminant_analysis
+    - file: linear_models/classification/logistic_regression
