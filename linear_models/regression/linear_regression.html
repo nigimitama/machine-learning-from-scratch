@@ -819,11 +819,11 @@ RMSE = \sqrt{
 <p class="sidebar-title">バイアスとバリアンス</p>
 <p>統計学・機械学習の分野では誤差をバイアス（bias）とバリアンス（variance）に分けて考えることが多い。</p>
 <p>バイアスは真の値<span class="math notranslate nohighlight">\(\theta\)</span>とサンプルを変えて推定を繰り返したときの個々の推定結果の平均<span class="math notranslate nohighlight">\(E(\hat{\theta})\)</span>との差で、
-バリアンスは推定の分散<span class="math notranslate nohighlight">\(\Var(\hat{\theta})\)</span>である。</p>
+バリアンスは推定の分散<span class="math notranslate nohighlight">\(V(\hat{\theta})\)</span>である。</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 Bias = \theta - E(\hat{\theta})\\
-Variance = \Var(\hat{\theta})
+Variance = V(\hat{\theta})
 \end{split}\]</div>
 </aside>
 <section id="id11">
@@ -849,9 +849,9 @@ E[\hat{\theta}]
 \end{split}\]</div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>線形モデル <span class="math notranslate nohighlight">\(\boldsymbol{y}=\boldsymbol{X} \boldsymbol{\beta}+\boldsymbol{\varepsilon}\)</span> のうち誤差項は仮定により<span class="math notranslate nohighlight">\(E[\boldsymbol{\varepsilon}]=0\)</span>であるため、<span class="math notranslate nohighlight">\(E[\boldsymbol{y}] = \boldsymbol{X}\boldsymbol{\beta}\)</span></p>
+<p>※線形モデル <span class="math notranslate nohighlight">\(\boldsymbol{y}=\boldsymbol{X} \boldsymbol{\beta}+\boldsymbol{\varepsilon}\)</span> のうち誤差項は仮定により<span class="math notranslate nohighlight">\(E[\boldsymbol{\varepsilon}]=0\)</span>であるため、<span class="math notranslate nohighlight">\(E[\boldsymbol{y}] = \boldsymbol{X}\boldsymbol{\beta}\)</span></p>
 </aside>
-<p>となり、<span class="math notranslate nohighlight">\(\hat{\theta}\)</span>が不偏推定量である（<span class="math notranslate nohighlight">\(E[\hat{\theta}] = \theta\)</span>）ことがわかる。</p>
+<p>となり（※）、<span class="math notranslate nohighlight">\(\hat{\theta}\)</span>が不偏推定量である（<span class="math notranslate nohighlight">\(E[\hat{\theta}] = \theta\)</span>）ことがわかる。</p>
 </section>
 <section id="id12">
 <h4>バリアンス<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h4>
