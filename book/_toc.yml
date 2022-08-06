@@ -4,12 +4,15 @@
 format: jb-book
 root: index
 parts:
-  - caption: Linear Regression
+  - caption: 統計学
     chapters:
-    - file: linear_models/regression/linear_regression
-    - file: linear_models/regression/ridge_regression
-    - file: linear_models/regression/lasso
-  - caption: Linear Classification
+    - file: statistics/probability_and_expectation
+    - file: statistics/distributions
+  - caption: 機械学習
     chapters:
-    - file: linear_models/classification/linear_discriminant_analysis
-    - file: linear_models/classification/logistic_regression
+    - file: machine_learning/linear_models/regression/linear_regression
+    - file: machine_learning/linear_models/regression/ridge_regression
+    - file: machine_learning/linear_models/regression/lasso
+    - file: machine_learning/linear_models/classification/linear_discriminant_analysis
+    - file: machine_learning/linear_models/classification/logistic_regression
+    - file: machine_learning/svm
