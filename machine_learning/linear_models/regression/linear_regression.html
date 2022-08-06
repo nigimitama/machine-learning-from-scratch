@@ -9,53 +9,53 @@
     <title>線形回帰 &#8212; 統計学と機械学習のメモ</title>
     
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Ridge回帰" href="ridge_regression.html" />
-    <link rel="prev" title="統計学と機械学習のメモ" href="../../index.html" />
+    <link rel="prev" title="確率分布" href="../../../statistics/distributions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -90,14 +90,14 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="bd-sidebar noprint" id="site-navigation">
     <div class="bd-sidebar__content">
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
       
       
       
       <h1 class="site-logo" id="site-title">統計学と機械学習のメモ</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -105,14 +105,31 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../../index.html">
+                <a class="reference internal" href="../../../index.html">
                     統計学と機械学習のメモ
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Linear Regression
+  統計学
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../statistics/probability_and_expectation.html">
+   確率と期待値・分散
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../statistics/distributions.html">
+   確率分布
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  機械学習
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -131,13 +148,6 @@ const thebe_selector_output = ".output, .cell_output"
    LASSO
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Linear Classification
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../classification/linear_discriminant_analysis.html">
    線形判別モデル
@@ -146,6 +156,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../classification/logistic_regression.html">
    ロジスティック回帰
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../svm.html">
+   Support Vector Machine
   </a>
  </li>
 </ul>
@@ -207,7 +222,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/nigimitama/machine-learning-from-scratch/gh-pages?urlpath=tree/docs/linear_models/regression/linear_regression.ipynb"
+        <a href="https://mybinder.org/v2/gh/nigimitama/machine-learning-from-scratch/gh-pages?urlpath=tree/docs/machine_learning/linear_models/regression/linear_regression.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -217,7 +232,7 @@ title="Launch on Binder"
 
 <span class="headerbtn__icon-container">
   
-    <img src="../../_static/images/logo_binder.svg">
+    <img src="../../../_static/images/logo_binder.svg">
   </span>
 <span class="headerbtn__text-container">Binder</span>
 </a>
@@ -267,7 +282,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/nigimitama/machine-learning-from-scratch//issues/new?title=Issue%20on%20page%20%2Flinear_models/regression/linear_regression.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/nigimitama/machine-learning-from-scratch//issues/new?title=Issue%20on%20page%20%2Fmachine_learning/linear_models/regression/linear_regression.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -295,7 +310,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/linear_models/regression/linear_regression.ipynb"
+        <a href="../../../_sources/machine_learning/linear_models/regression/linear_regression.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -574,7 +589,7 @@ J( \boldsymbol{\beta})
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/linear_regression_1_0.png" src="../../_images/linear_regression_1_0.png" />
+<img alt="../../../_images/linear_regression_1_0.png" src="../../../_images/linear_regression_1_0.png" />
 </div>
 </div>
 <p>誤差二乗和は</p>
@@ -682,7 +697,7 @@ x_2 \sim Normal(3, 1)\\
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0.5, 0, &#39;x2&#39;), Text(0, 0.5, &#39;y&#39;)]
 </pre></div>
 </div>
-<img alt="../../_images/linear_regression_8_1.png" src="../../_images/linear_regression_8_1.png" />
+<img alt="../../../_images/linear_regression_8_1.png" src="../../../_images/linear_regression_8_1.png" />
 </div>
 </div>
 </section>
@@ -802,7 +817,7 @@ RMSE = \sqrt{
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/linear_regression_20_0.png" src="../../_images/linear_regression_20_0.png" />
+<img alt="../../../_images/linear_regression_20_0.png" src="../../../_images/linear_regression_20_0.png" />
 </div>
 </div>
 </section>
@@ -826,6 +841,17 @@ Bias = \theta - E(\hat{\theta})\\
 Variance = V(\hat{\theta})
 \end{split}\]</div>
 </aside>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ガウス・マルコフの定理
+各<span class="math notranslate nohighlight">\(i\)</span>について、</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(E[\varepsilon_i] = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(V[\varepsilon_i]=\sigma^2 &lt; \infty\)</span> が共通</p></li>
+<li><p><span class="math notranslate nohighlight">\(i \neq j\)</span>のとき<span class="math notranslate nohighlight">\(E[\varepsilon_i \varepsilon_j] = 0\)</span></p></li>
+</ul>
+<p>を満たすとき、最小二乗推定量<span class="math notranslate nohighlight">\(\hat{\beta}_{OLS}\)</span>はBLUEになる</p>
+</div>
 <section id="id11">
 <h4>不偏性<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h4>
 <p>任意のパラメータの線形結合<span class="math notranslate nohighlight">\(\theta=\boldsymbol{\alpha}^\top {\boldsymbol{\beta}}\)</span>を考える。例えば<span class="math notranslate nohighlight">\(f(x_0)=x_0^\top \beta\)</span>がこの形である。</p>
@@ -842,14 +868,16 @@ Variance = V(\hat{\theta})
 E[\hat{\theta}]
 &amp;= E[\boldsymbol{\alpha}^\top \hat{\boldsymbol{\beta}}]\\
 &amp;= E[\boldsymbol{\alpha}^\top (\boldsymbol{X}^\top \boldsymbol{X})^{-1} \boldsymbol{X}^\top \boldsymbol{y}]\\
-&amp;= \boldsymbol{\alpha}^\top (\boldsymbol{X}^\top \boldsymbol{X})^{-1} \boldsymbol{X}^\top E[\boldsymbol{y}]\\
-&amp;= \boldsymbol{\alpha}^\top (\boldsymbol{X}^\top \boldsymbol{X})^{-1} \boldsymbol{X}^\top \boldsymbol{X} \boldsymbol{\beta}\\
+% &amp;= \boldsymbol{\alpha}^\top (\boldsymbol{X}^\top \boldsymbol{X})^{-1} \boldsymbol{X}^\top E[\boldsymbol{y}]\\
+&amp;= E[\boldsymbol{\alpha^\top (X^\top X)^{-1} X^\top (X\beta + \varepsilon) }] \\
+&amp;= \boldsymbol{\alpha^\top (X^\top X)^{-1} X^\top X \beta + \alpha^\top (X^\top X)^{-1} X^\top} E[ \varepsilon ] \\
+&amp;= \boldsymbol{\alpha^\top (X^\top X)^{-1} X^\top X \beta}\\
 &amp;= \boldsymbol{\alpha}^\top \boldsymbol{\beta}
 \end{align}
 \end{split}\]</div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>※線形モデル <span class="math notranslate nohighlight">\(\boldsymbol{y}=\boldsymbol{X} \boldsymbol{\beta}+\boldsymbol{\varepsilon}\)</span> のうち誤差項は仮定により<span class="math notranslate nohighlight">\(E[\boldsymbol{\varepsilon}]=0\)</span>であるため、<span class="math notranslate nohighlight">\(E[\boldsymbol{y}] = \boldsymbol{X}\boldsymbol{\beta}\)</span></p>
+<p>※誤差項は仮定により<span class="math notranslate nohighlight">\(E[\boldsymbol{\varepsilon}]=0\)</span>であるため</p>
 </aside>
 <p>となり（※）、<span class="math notranslate nohighlight">\(\hat{\theta}\)</span>が不偏推定量である（<span class="math notranslate nohighlight">\(E[\hat{\theta}] = \theta\)</span>）ことがわかる。</p>
 </section>
@@ -893,6 +921,21 @@ V[\boldsymbol{c^\top y}] &amp;= V[\boldsymbol{ \alpha^\top \hat{\beta} - d^\top 
 \end{align}
 \end{split}\]</div>
 <p>と表すことができる。</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Cov}(A, B) = E[(A - E[A])(B - E[B])^\top]
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\text{Cov}(a^\top y, b^\top y)
+= E[(a^\top y - E[a^\top y])(b^\top y - E[b^\top y])^\top]
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\text{Cov}(a^\top y, b^\top y)
+= E[(a^\top y - E[a^\top y])(b^\top y - E[b^\top y])^\top]\\
+= E[(a^\top y - \alpha^\top \beta)(b^\top y - E[b^\top y])^\top]
+\end{split}\]</div>
 <p>次に、2つの確率変数</p>
 <div class="math notranslate nohighlight">
 \[
@@ -957,7 +1000,7 @@ V[\boldsymbol{ c^\top y }] \geq V[\boldsymbol{ \alpha^\top \hat{\beta} }]
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./linear_models/regression"
+            path: "./machine_learning/linear_models/regression"
         },
         predefinedOutput: true
     }
@@ -971,11 +1014,11 @@ V[\boldsymbol{ c^\top y }] \geq V[\boldsymbol{ \alpha^\top \hat{\beta} }]
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../../index.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../../../statistics/distributions.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">統計学と機械学習のメモ</p>
+            <p class="prev-next-title">確率分布</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="ridge_regression.html" title="next page">
@@ -1006,7 +1049,7 @@ V[\boldsymbol{ c^\top y }] \geq V[\boldsymbol{ \alpha^\top \hat{\beta} }]
     </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
 
   </body>
