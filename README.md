@@ -5,18 +5,3 @@
 
 https://nigimitama.github.io/machine-learning-from-scratch/
 
-
-
-## 更新方法
-
-### デプロイ
-
-mainにpushすればGithub Actionsでbuildしてgh-pagesブランチにpushされる
-
-### ローカルでのビルド＆確認
-
-```sh
-sudo bash commands.sh build
-```
-
-でbookをbuildできる
